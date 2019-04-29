@@ -1,0 +1,24 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "guest_os_type": "Redhat_64",
+      "iso_url": "file:///home/chriswang/Desktop/packer_cksy/rhel-server-7.5-x86_64-dvd.iso",
+      "iso_checksum": "fdc2f2faa2e31f0ba77d49eab14651cf",
+      "iso_checksum_type": "md5",
+      "ssh_username": "packer",
+      "ssh_password": "packer",
+      "boot command": [
+          
+      ],
+      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "compression_level": "9",
+      "output": "/home/chriswang/Desktop/rhel.box"
+    }
+  ]
+}
