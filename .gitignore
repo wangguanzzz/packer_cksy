@@ -1,2 +1,4 @@
 packer_cache
 *.iso
+hardening
+audit.rules.d.tar

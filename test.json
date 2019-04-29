@@ -6,12 +6,16 @@
       "iso_url": "file:///home/chriswang/Desktop/packer_cksy/rhel-server-7.5-x86_64-dvd.iso",
       "iso_checksum": "fdc2f2faa2e31f0ba77d49eab14651cf",
       "iso_checksum_type": "md5",
-      "ssh_username": "packer",
-      "ssh_password": "packer",
-      "boot command": [
-          
+      "ssh_username": "root",
+      "ssh_password": "password",
+      "ssh_timeout": "20m",
+      "boot_command": [
+        "<esc>",
+        "<wait>linux inst.ks=hd:/dev/fd0:ks.cfg<enter>"
       ],
-      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
+      "disk_size": 93000,
+      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+      "floppy_files": ["ks.cfg"]
     }
   ],
   "post-processors": [
