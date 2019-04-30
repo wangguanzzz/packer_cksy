@@ -9,6 +9,10 @@
       "ssh_username": "root",
       "ssh_password": "password",
       "ssh_timeout": "20m",
+      "vm_name": "packer_rhel",
+      "cpus": 2,
+      "memory": 2048,
+      "format": "ova",
       "boot_command": [
         "<esc>",
         "<wait>linux inst.ks=hd:/dev/fd0:ks.cfg<enter>"
@@ -18,11 +22,22 @@
       "floppy_files": ["ks.cfg"]
     }
   ],
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "audit.rules.d.tar",
+      "destination": "/tmp/audit.rules.d.tar"
+    },
+    {
+      "type": "shell",
+      "scripts": ["hardening"]
+    }
+  ],
   "post-processors": [
     {
       "type": "vagrant",
-      "compression_level": "9",
-      "output": "/home/chriswang/Desktop/rhel.box"
+      "compression_level": 9,
+      "output": "packer_rhel.box"
     }
   ]
 }

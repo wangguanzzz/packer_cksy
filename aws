@@ -1,0 +1,11 @@
+    {
+      "type": "amazon-import",
+      "access_key": "",
+      "secret_key": "",
+      "region": "ap-southeast-1",
+      "s3_bucket_name": "chrisami",
+      "license_type": "BYOL",
+      "tags": {
+        "Description": "packer amazon-import {{timestamp}}"
+      }
+    }
